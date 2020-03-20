@@ -2,7 +2,7 @@
 import sys
 import requests
 import turtle
-from pprint import pprint
+import time
 
 
 __author__ = 'luisfff29 with help from Joseph'
@@ -14,7 +14,7 @@ if sys.version_info[0] < 3:
 astronauts_api = 'http://api.open-notify.org/astros.json'
 coordinates_api = 'http://api.open-notify.org/iss-now.json'
 indianapolis_api = 'http://api.open-notify.org/iss-pass.json'
-IN_LAT, IN_LON = 39.768403, -86.158068
+IN_LAT, IN_LON = 39.791000, -86.148003
 
 
 def part_A():
@@ -60,7 +60,9 @@ def part_D():
     url = '{}?lat={}&lon={}'.format(indianapolis_api, IN_LAT, IN_LON)
     r = requests.get(url)
     d = r.json()
-    pprint(d)
+    timestamp = d['response'][0]['risetime']
+    print('The next time the ISS will be overhead of Indianapolis IN will be on:')
+    print('    ' + time.ctime(timestamp))
 
 
 def main(args):
