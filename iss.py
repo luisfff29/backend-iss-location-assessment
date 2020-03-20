@@ -45,7 +45,9 @@ def part_C():
     t.shape('iss.gif')
     while True:
         r = requests.get(coordinates_api).json()
-        lon, lat = r['iss_position']['longitude'], r['iss_position']['latitude']
+        LON = r['iss_position']['longitude']
+        LAT = r['iss_position']['latitude']
+        lon, lat = LON, LAT
         t.goto(float(lon), float(lat))
 
     turtle.done()
