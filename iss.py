@@ -53,6 +53,10 @@ def part_C():
     turtle.done()
 
 
+def part_D():
+    pass
+
+
 def main(args):
     if args[0] == 'part_A':
         part_A()
@@ -60,6 +64,13 @@ def main(args):
         part_B()
     elif args[0] == 'part_C':
         part_C()
+    elif args[0] == 'part_D':
+        part_D()
+    else:
+        part_A()
+        part_B()
+        part_C()
+        part_D()
 
 
 if __name__ == '__main__':
