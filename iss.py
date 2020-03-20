@@ -2,6 +2,7 @@
 import sys
 import requests
 import turtle
+from pprint import pprint
 
 
 __author__ = 'luisfff29 with help from Joseph'
@@ -12,6 +13,8 @@ if sys.version_info[0] < 3:
 
 astronauts_api = 'http://api.open-notify.org/astros.json'
 coordinates_api = 'http://api.open-notify.org/iss-now.json'
+indianapolis_api = 'http://api.open-notify.org/iss-pass.json'
+IN_LAT, IN_LON = 39.768403, -86.158068
 
 
 def part_A():
@@ -54,7 +57,10 @@ def part_C():
 
 
 def part_D():
-    pass
+    url = '{}?lat={}&lon={}'.format(indianapolis_api, IN_LAT, IN_LON)
+    r = requests.get(url)
+    d = r.json()
+    pprint(d)
 
 
 def main(args):
