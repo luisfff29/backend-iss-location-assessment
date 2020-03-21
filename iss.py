@@ -7,7 +7,7 @@ import time
 
 __author__ = 'luisfff29 with help from Joseph'
 
-
+# Making sure this code is running in python3
 if sys.version_info[0] < 3:
     raise RuntimeError('This program should be run in Python 3')
 
@@ -34,6 +34,7 @@ def part_B():
     print('Timestamp: {}'.format(d['timestamp']))
 
 
+# Create turtle with map as background
 def turtle_python():
     s = turtle.Screen()
     s.setup(width=720, height=360)
@@ -49,6 +50,7 @@ def part_C():
     turtle.Screen().addshape('iss.gif')
     t.shape('iss.gif')
 
+    # Infinite loop to track the ISS
     while True:
         r = requests.get(coordinates_api).json()
         LON = r['iss_position']['longitude']
@@ -63,10 +65,12 @@ def part_D():
     url = '{}?lat={}&lon={}'.format(indianapolis_api, IN_LAT, IN_LON)
     r = requests.get(url)
     d = r.json()
+    # Timestamp resutl after a successful call
     timestamp = d['response'][0]['risetime']
     print('The next time the ISS will be overhead '
           'of Indianapolis IN will be on:')
     print('    ' + time.ctime(timestamp))
+    # Show map with yellow dot of the location
     turtle_python()
     t = turtle.Turtle()
     t.penup()
