@@ -34,18 +34,21 @@ def part_B():
     print('Timestamp: {}'.format(d['timestamp']))
 
 
-def part_C():
+def turtle_python():
     s = turtle.Screen()
-    t = turtle.Turtle()
-
     s.setup(width=720, height=360)
     s.bgpic('map.gif')
     s.title('ISS Location')
-    s.addshape('iss.gif')
     s.setworldcoordinates(-180, -90, 180, 90)
 
+
+def part_C():
+    turtle_python()
+    t = turtle.Turtle()
     t.penup()
+    turtle.Screen().addshape('iss.gif')
     t.shape('iss.gif')
+
     while True:
         r = requests.get(coordinates_api).json()
         LON = r['iss_position']['longitude']
@@ -61,7 +64,8 @@ def part_D():
     r = requests.get(url)
     d = r.json()
     timestamp = d['response'][0]['risetime']
-    print('The next time the ISS will be overhead of Indianapolis IN will be on:')
+    print('The next time the ISS will be overhead '
+          'of Indianapolis IN will be on:')
     print('    ' + time.ctime(timestamp))
 
 
