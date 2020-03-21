@@ -67,6 +67,14 @@ def part_D():
     print('The next time the ISS will be overhead '
           'of Indianapolis IN will be on:')
     print('    ' + time.ctime(timestamp))
+    turtle_python()
+    t = turtle.Turtle()
+    t.penup()
+    t.goto(IN_LON, IN_LAT)
+    t.shape('circle')
+    t.color('yellow')
+
+    turtle.done()
 
 
 def main(args):
@@ -77,11 +85,6 @@ def main(args):
     elif args[0] == 'part_C':
         part_C()
     elif args[0] == 'part_D':
-        part_D()
-    else:
-        part_A()
-        part_B()
-        part_C()
         part_D()
 
 
