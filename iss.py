@@ -5,7 +5,7 @@ import turtle
 import time
 
 
-__author__ = 'luisfff29 with help from Joseph'
+__author__ = 'luisfff29 with help from Joseph and Daniel'
 
 # Making sure this code is running in python3
 if sys.version_info[0] < 3:
@@ -69,15 +69,17 @@ def part_D():
     timestamp = d['response'][0]['risetime']
     print('The next time the ISS will be overhead '
           'of Indianapolis IN will be on:')
-    print('    ' + time.ctime(timestamp))
+    rise_time = time.ctime(timestamp)
+    print('\t' + rise_time)
     # Show map with yellow dot of the location
     turtle_python()
     t = turtle.Turtle()
     t.penup()
-    t.goto(IN_LON, IN_LAT)
-    t.shape('circle')
     t.color('yellow')
-
+    t.goto(IN_LON, IN_LAT)
+    t.dot(5)
+    t.hideturtle()
+    t.write(rise_time, align="center", font=("Arial", 12, "normal"))
     turtle.done()
 
 
